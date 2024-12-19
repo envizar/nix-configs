@@ -1,0 +1,205 @@
+{ config, pkgs, ... }:
+
+{
+  # TODO please change the username & home directory to your own
+  home.username = "envizar";
+  home.homeDirectory = "/home/envizar";
+
+  # link the configuration file in current directory to the specified location in home directory
+  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
+
+  # link all files in `./scripts` to `~/.config/i3/scripts`
+  # home.file.".config/i3/scripts" = {
+  #   source = ./scripts;
+  #   recursive = true;   # link recursively
+  #   executable = true;  # make all files executable
+  # };
+
+  # encode the file content in nix configuration file directly
+  # home.file.".xxx".text = ''
+  #     xxx
+  # '';
+
+  # set cursor size and dpi for 4k monitor
+  # xresources.properties = {
+  #   "Xcursor.size" = 16;
+  #   "Xft.dpi" = 172;
+  # };
+  # wayland.windowManager.hyprland = {
+  # 	enable = true;
+  # };
+  
+  dconf.settings = {
+  	"org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        # gtk-theme = "Adwaita:dark";
+  	};
+  };
+  gtk = {
+    enable = true;
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nerdfonts;
+      size = 12;
+    };
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
+    };
+    iconTheme = {
+    	name = "Adwaita";
+    	package = pkgs.gnome.adwaita-icon-theme;
+    };
+  };
+
+  home.pointerCursor = {
+  	package = pkgs.bibata-cursors;
+  	name = "Bibata-Original-Classic";
+  	size = 22;
+  	gtk.enable = true;
+  	x11 = {
+  	  enable = true;
+  	  defaultCursor = true;
+  	};
+  };
+
+  home.packages = with pkgs; [
+    # Hyprland
+    hyprpaper
+    hyprcursor
+    hyprpicker # color picker
+    hypridle
+    xdg-desktop-portal-wlr
+  
+    # Desktop environment
+    clipse # clipboard history
+	waybar
+	wofi # app launcher
+	pipewire # sound server
+	wireplumber
+	xfce.thunar xfce.xfconf # file explorer
+	glib
+	wl-clipboard
+	mako libnotify # notifications
+	grim slurp swappy # screenshots
+	openrazer-daemon polychromatic # for razer keyboard
+
+    # Software
+    alacritty # terminal
+    firefox
+    brave
+    vesktop # discord client with vencord
+    obsidian
+    modrinth-app
+    libreoffice
+    vscodium # vscode
+    figma-linux
+    zoom-us
+    vlc # media player
+    telegram-desktop
+    openvpn
+    obs-studio
+    insomnia
+    blockbench
+    steam
+    zulu # java 21
+    looking-glass-client
+    
+    jetbrains.webstorm
+    jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
+  ];
+
+  programs.git = {
+    enable = true;
+    userName = "envizar";
+    userEmail = "silent.gate@ya.ru";
+  };
+  
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = false;
+    syntaxHighlighting.enable = false;
+  
+    shellAliases = {
+      ls = "eza --icons";
+      update = "sudo nixos-rebuild switch";
+      reboot = "sudo reboot now";
+      poweroff = "sudo poweroff";
+    };
+    history = {
+      size = 5000;
+      path = "${config.xdg.dataHome}/zsh/history";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "agnoster";
+    };
+
+    # initExtra = ''
+    #   eval "$(starship init zsh)"
+    # '';
+  
+  };
+  # programs.starship = {
+  # 	enable = true;
+  # 	enableZshIntegration = true;
+  # 	package = pkgs.starship;
+  # };
+  
+
+  # starship - an customizable prompt for any shell
+  # programs.starship = {
+  #   enable = true;
+  #   # custom settings
+  #   settings = {
+  #     add_newline = false;
+  #     aws.disabled = true;
+  #     gcloud.disabled = true;
+  #     line_break.disabled = true;
+  #   };
+  # };
+
+  # alacritty - a cross-platform, GPU-accelerated terminal emulator
+  programs.alacritty = {
+    enable = true;
+    # custom settings
+    settings = {
+      font = {
+        size = 16;
+        normal = {
+          family = "JetBrainsMono Nerd Font";
+        };
+      };
+      window = {
+        opacity = 0.9;
+      };
+      cursor = {
+        style = "Beam";
+        thickness = 0.15;
+      };
+      scrolling.multiplier = 5;
+      selection.save_to_clipboard = false;
+      shell = "zsh";
+    };
+  };
+  
+  # home.file.".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
+  # home.file.".config/hypr/hyprpaper.conf".source = ./hypr/hyprpaper.conf;
+
+  # This value determines the home Manager release that your
+  # configuration is compatible with. This helps avoid breakage
+  # when a new home Manager release introduces backwards
+  # incompatible changes.
+  #
+  # You can update home Manager without changing this value. See
+  # the home Manager release notes for a list of state version
+  # changes in each release.
+  home.stateVersion = "24.05";
+
+  # Let home Manager install and manage itself.
+  programs.home-manager.enable = true;
+}
