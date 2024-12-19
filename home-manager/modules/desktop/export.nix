@@ -6,5 +6,6 @@
     ./screenlock.nix
     ./theme.nix
     ./waybar.nix
+    ./uwsm.nix
   ];
 }
