@@ -10,7 +10,7 @@
     hypridle
     hyprpicker # color picker
     xdg-desktop-portal-wlr
-  
+      
     # Desktop environment
     xwayland # wayland support fox xorg apps
     clipse # clipboard history

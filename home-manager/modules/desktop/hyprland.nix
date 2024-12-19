@@ -15,6 +15,7 @@
         "uwsm app -- mako --config /home/envizar/.config/mako/config"
         "uwsm app -- systemctl --user start plasma-polkit-agent"
         "uwsm app -- wl-paste -t text --watch clipman store"
+        "uwsm app -- hiddify"
       ];
 
       # ENVIRONMENT VARIABLES
@@ -30,6 +31,10 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "MOZ_ENABLE_WAYLAND,1"
       ];
+
+      debug = {
+      	disable_logs = false;
+      };
 
       # LOOK AND FEEL
       general = {
@@ -48,7 +53,7 @@
 
       cursor = {
       	no_warps = true;
-      	allow_dumb_copy = true;
+      	# allow_dumb_copy = true;
       };
 
       decoration = {

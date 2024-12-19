@@ -8,5 +8,7 @@
     ./virtualization.nix # Things connected to virtualization
     ./mesa.nix # https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
     ./mysql.nix # MariaDB config
+    ./hyprland.nix
+    # ./openrazer.nix
   ];
 }

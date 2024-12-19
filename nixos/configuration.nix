@@ -24,6 +24,8 @@
   
   nixpkgs.config.allowUnfree = true;
 
+  hardware.openrazer.enable = true;
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -43,6 +45,15 @@
       dates = [ "03:45" ];
     };
   };
+
+  console = {
+  	earlySetup = true;
+  	font = "ter-v16n";
+  	packages = [ pkgs.terminus_font ];
+  	useXkbConfig = true;
+  };
+
+  # programs.dconf.enable = true;
 
   # DO NOT CHANGE!
   system.stateVersion = "24.05";

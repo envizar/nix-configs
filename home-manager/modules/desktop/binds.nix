@@ -3,7 +3,7 @@
 
 	# ALIASES
     "$terminal" = "alacritty";
-    "$fileManager" = "uwsm app -- thunar";
+    "$fileManager" = "thunar";
     "$menu" = "wofi --show drun --width 500 --height 600 --hide-scroll --no-actions --allow-images --prompt Поиск --term alacritty";
     "$discord" = "vesktop --proxy-server=127.0.0.1:12334";
     "$browser" = "firefox";
