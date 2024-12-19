@@ -7,5 +7,6 @@
     ./theme.nix
     ./waybar.nix
     ./uwsm.nix
+    ./idle.nix
   ];
 }

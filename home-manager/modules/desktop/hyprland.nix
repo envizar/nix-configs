@@ -13,9 +13,10 @@
         "uwsm app -- hyprpaper"
         "uwsm app -- waybar"
         "uwsm app -- mako --config /home/envizar/.config/mako/config"
-        "uwsm app -- systemctl --user start plasma-polkit-agent"
+        "uwsm app -- systemctl --user start hyprpolkitagent"
         "uwsm app -- wl-paste -t text --watch clipman store"
         "uwsm app -- hiddify"
+        "uwsm app -- hypridle"
       ];
 
       # ENVIRONMENT VARIABLES

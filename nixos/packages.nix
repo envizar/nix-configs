@@ -10,6 +10,7 @@
     hypridle
     hyprpicker # color picker
     xdg-desktop-portal-wlr
+    hyprpolkitagent
       
     # Desktop environment
     xwayland # wayland support fox xorg apps
@@ -24,7 +25,7 @@
     grim grimblast slurp swappy # screenshots
     openrazer-daemon polychromatic # for razer keyboard
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-    polkit-kde-agent
+    # polkit-kde-agent
     # wf-recorder # screen video recorder
 
     # Software
