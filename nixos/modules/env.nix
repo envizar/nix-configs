@@ -10,5 +10,11 @@
       # This shot breaks something so it's disabled
   	  # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.udev pkgs.stdenv.cc.cc.lib pkgs.glibc ];
   	};
+
+    shellInit = ''
+      if uwsm check may-start; then
+         exec uwsm start hyprland.desktop
+      fi
+    '';
   };
 }

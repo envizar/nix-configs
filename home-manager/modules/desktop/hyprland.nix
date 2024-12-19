@@ -16,10 +16,11 @@
       
       # AUTOSTART
       exec-once = [
-        "hyprpaper" "waybar"
-        "mako --config /home/envizar/.config/mako/config"
-        "systemctl --user start plasma-polkit-agent"
-        "wl-paste -t text --watch clipman store"
+        "uwsm app -- hyprpaper"
+        "uwsm app -- waybar"
+        "uwsm app -- mako --config /home/envizar/.config/mako/config"
+        "uwsm app -- systemctl --user start plasma-polkit-agent"
+        "uwsm app -- wl-paste -t text --watch clipman store"
       ];
 
       # ENVIRONMENT VARIABLES
