@@ -114,6 +114,10 @@
           name = "razer-razer-ornata-chroma";
 	        kb_layout = "us,ru";
         }
+        {
+          name = "razer-razer-ornata-chroma-1";
+          kb_layout = "us,ru";
+        }
       ];
       
     };

@@ -9,10 +9,13 @@
     "$browser" = "firefox";
     "$telegram" = "telegram-desktop";
     "$cliphistory" = "clipman pick -t wofi -T'--height 400 --width 700 -e -I'";
-    "$powermenu" = "sh ~/scripts/powermenu.sh";
+    "$powermenu" = "sh ~/nix/scripts/powermenu.sh";
     "$terminote" = "alacritty --class terminote -e micro -config-dir /home/envizar/.config/micro/notes/";
     "$minecraft" = "ModrinthApp";
     "$vpn" = "hiddify";
+    "$rebuild" = "alacritty --class nixrebuild -e sh ~/nix/scripts/nix-rebuild.sh";
+    "$lock" = "sh ~/nix/scripts/hyprlock.sh";
+    "$switchlang" = "sh ~/nix/scripts/switchlang.sh";
 
     binds.allow_workspace_cycles = true;
 
@@ -29,7 +32,8 @@
       "$mainMod, E, exec, $fileManager" # Win + E => File explorer
       "$mainMod, N, exec, $terminote" # Win + N => Terminote
       "$mainMod, H, exec, $vpn" # Win + H => VPN client
-        
+      "$mainMod SHIFT, S, exec, $rebuild" # Win + Shift + S => System rebuild window
+              
       # Menus
       "$mainMod, R, exec, $menu" # Win + R => Open run menu
       "$mainMod CTRL, V, exec, $cliphistory" # Win + CTRL + V => Clipboard history
@@ -48,8 +52,8 @@
       "$mainMod, down, movefocus, d"
 
       # Other
-      "$mainMod, ESCAPE, exec, sh ~/scripts/hyprlock.sh" # Win + Esc => Sleep
-      "$mainMod, SPACE, exec, sh ~/scripts/switchlang.sh" # Win + Space => Switch lang
+      "$mainMod, ESCAPE, exec, $lock" # Win + Esc => Sleep
+      "$mainMod, SPACE, exec, $switchlang" # Win + Space => Switch lang
       '', Print, exec, grimblast --freeze save area - | swappy -f -'' # Screenshot
       ''SHIFT, Print, exec, hyprpicker -a'' # Color picker
       # Change volume by Win + "+" or Win + "-"
@@ -105,6 +109,10 @@
       "pin, class:(terminote)"
       "size 676 493, class:(terminote)"
       "move cursor -50% -50%, class:(terminote)"
+
+      # Rebuild window
+      "float, class:(nixrebuild)"
+      "move 1745 66, class:(nixrebuild)"
 
       # Telegram
       "float, class:(org.telegram.desktop)"
