@@ -1,2 +1,2 @@
-hyprctl switchxkblayout razer-razer-ornata-chroma 0
+hyprctl switchxkblayout all 0
 hyprlock
