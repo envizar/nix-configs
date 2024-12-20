@@ -1,6 +1,6 @@
 { ... }: {
   services.hyprpaper = let
-    wallpaper = "/home/envizar/.config/imgs/nix-wallpaper-gear.png";
+    wallpaper = "/home/envizar/nix/assets/nix-wallpaper-gear.png";
   in {
     enable = true;
     settings = {

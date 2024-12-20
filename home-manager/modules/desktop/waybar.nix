@@ -12,7 +12,7 @@
 
         modules-left = [ "image" "hyprland/workspaces" ];
         "image" = {
-          path = "/home/envizar/.config/imgs/nixos-logo.png";
+          path = "/home/envizar/nix/assets/nixos-logo.png";
           size = 38;
         };
         "hyprland/workspaces" = {
