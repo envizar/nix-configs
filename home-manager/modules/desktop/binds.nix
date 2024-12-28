@@ -16,6 +16,7 @@
     "$rebuild" = "alacritty --class nixrebuild -e sh ~/nix/scripts/nix-rebuild.sh";
     "$lock" = "sh ~/nix/scripts/hyprlock.sh";
     "$switchlang" = "sh ~/nix/scripts/switchlang.sh";
+    "$notes" = "obsidian";
 
     binds.allow_workspace_cycles = true;
 
@@ -27,7 +28,7 @@
       "$mainMod, D, exec, $discord" # Win + D => Discord
       "$mainMod, B, exec, $browser" # Win + B => Browser
       "$mainMod, T, exec, $telegram" # Win + T => Telegram
-      "$mainMod, O, exec, $telegram" # Win + O => Obsidian
+      "$mainMod, O, exec, $notes" # Win + O => Obsidian
       "$mainMod, M, exec, $minecraft" # Win + M => Minecraft launcher
       "$mainMod, E, exec, $fileManager" # Win + E => File explorer
       "$mainMod, N, exec, $terminote" # Win + N => Terminote

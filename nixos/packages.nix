@@ -4,6 +4,9 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+
+	pomodoro-gtk
+  
     # Hyprland
     hyprpaper
     hyprcursor
