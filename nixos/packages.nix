@@ -4,8 +4,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-
-	pomodoro-gtk
   
     # Hyprland
     hyprpaper
@@ -45,7 +43,7 @@
     blockbench
     motrix # torrent client
     nekoray
-    sonic-visualiser
+    pkgs-stable.sonic-visualiser
     iperf
     mongodb-compass
     hiddify-app
@@ -53,6 +51,7 @@
     jetbrains.webstorm
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
+    pomodoro-gtk
 
     # Disabled since i don't use it
     # figma-linux 
