@@ -3,7 +3,9 @@
 
 	# ALIASES
     "$terminal" = "alacritty";
-    "$fileManager" = "thunar";
+    "$termFloat" = "$terminal --class termfloat";
+    "$fileManagerTui" = "alacritty --class superfile --command superfile";
+    "$fileManagerGui" = "thunar";
     "$menu" = "wofi --show drun --width 500 --height 600 --hide-scroll --no-actions --allow-images --prompt Поиск --term alacritty";
     "$discord" = "vesktop --proxy-server=127.0.0.1:12334";
     "$browser" = "firefox";
@@ -25,12 +27,13 @@
     bind = [
       # Program binds
       "$mainMod, Q, exec, $terminal" # Win + Q => Alacritty
+      "$mainMod SHIFT, Q, exec, $termFloat" # Win + Shift + Q => Float alacritty
       "$mainMod, D, exec, $discord" # Win + D => Discord
       "$mainMod, B, exec, $browser" # Win + B => Browser
       "$mainMod, T, exec, $telegram" # Win + T => Telegram
       "$mainMod, O, exec, $notes" # Win + O => Obsidian
-      "$mainMod, M, exec, $minecraft" # Win + M => Minecraft launcher
-      "$mainMod, E, exec, $fileManager" # Win + E => File explorer
+      "$mainMod, E, exec, $fileManagerTui" # Win + E => TUI file explorer
+      "$mainMod SHIFT, E, exec, $fileManagerGui" # Win + Shift + E => GUI file explorer
       "$mainMod, N, exec, $terminote" # Win + N => Terminote
       "$mainMod, H, exec, $vpn" # Win + H => VPN client
       "$mainMod SHIFT, S, exec, $rebuild" # Win + Shift + S => System rebuild window
@@ -111,6 +114,11 @@
       "size 676 493, class:(terminote)"
       "move cursor -50% -50%, class:(terminote)"
 
+      # Floating terminal
+      "float, class:(termfloat)"
+      "size 1000 600, class:(termfloat)"
+      "move cursor -50% -50%, class:(termfloat)"
+
       # Rebuild window
       "float, class:(nixrebuild)"
       "move 1745 66, class:(nixrebuild)"
@@ -120,10 +128,17 @@
       "size 1000 1000, class:(org.telegram.desktop)"
       "move 1550 60, class:(org.telegram.desktop)"
 
+      # Superfile
+      "float, class:(superfile)"
+      "size 1200 800, class:(superfile)"
+      "move cursor -50% -50%, class:(superfile)"
+
       # Other programs
       "float, class:(nekoray)"
       "float, class:(Thunar)"
       "float, class:(thunar)"
+      "float, class:(io.gitlab.idevecore.Pomodoro)"
+      "float, class:(org.gnome.Loupe)"
 
       # Do not change
       "suppressevent maximize, class:.*"

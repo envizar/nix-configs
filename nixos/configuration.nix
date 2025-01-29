@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ...}: {
+{ inputs, config, pkgs, pkgs-stable, ...}: {
   
   imports = [
     ./hardware-configuration.nix # Include hardware scan
@@ -21,10 +21,12 @@
       LC_TIME = "ru_RU.UTF-8";
   	};
   };
+
+  services.flatpak.enable = true;
   
   nixpkgs.config.allowUnfree = true;
 
-  hardware.openrazer.enable = true;
+  # hardware.openrazer.enable = true;
 
   nix = {
     settings = {

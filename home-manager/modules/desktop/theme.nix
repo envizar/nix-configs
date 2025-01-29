@@ -19,14 +19,29 @@ in {
       package = pkgs.gnome-themes-extra;
     };
     iconTheme = {
-    	name = "Colloid-teal-dark";
-    	package = pkgs.colloid-icon-theme;
+    	name = "Adwaita";
+    	package = pkgs.adwaita-icon-theme;
     };
+    gtk4.extraCss = ''
+      popover contents {
+      	border-bottom-left-radius: 0;
+      	border-bottom-right-radius: 0;
+      	border-top-left-radius: 0;
+      	border-top-right-radius: 0;
+      	box-shadow: none;
+      	margin-top: -12px;
+      }  
+      
+      popover arrow {
+      	background: transparent;
+      	border-color: transparent;
+      }
+    '';
   };
   dconf.settings = {
   	"org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
-        # gtk-theme = "Adwaita:dark";
+        gtk-theme = "Adwaita-dark";
   	};
   };
 
